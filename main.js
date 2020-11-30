@@ -1,23 +1,35 @@
-const expenseInput = document.querySelector('#name-of-expense');
-const dateInput = document.querySelector('#date');
-const amountInput = document.querySelector('#amount');
-const addExpenseBtn = document.querySelector('#btn-add');
-const tableBody = document.querySelector('tbody');
-const form = document.querySelector('form');
-
-function getExpenseInfo(e) {
-    e.preventDefault();
-
-    const expenseInfo = [];
-
-    let expense = document.createTextNode(expenseInput.value);
-    let date = document.createTextNode(dateInput.value);
-    let amount = document.createTextNode('$' + amountInput.value);
-
-    expenseInfo.push(expense, date, amount);
+(function expense() {
+    const expenseInput = document.querySelector('#name-of-expense');
+    const dateInput = document.querySelector('#date');
+    const amountInput = document.querySelector('#amount');
+    const addExpenseBtn = document.querySelector('#btn-add');
     
-    createExpense(expenseInfo);
-}
+    let expense;
+    let date;
+    let amount;
+    let expenseInfo = [];
+
+    function setExpenseInput(e) {
+        e.preventDefault();
+
+         expense = document.createTextNode(expenseInput.value);
+         date = document.createTextNode(dateInput.value);
+         amount = document.createTextNode('$' + amountInput.value);
+
+         (function checkExpenseInput() {
+            if (expense.textContent === '' || date.textContent === '' || amount.textContent === '$') {
+                alert('Please enter a name, date and amount');
+                return;
+            } else {
+                expenseInfo.push(expense, date, amount);
+                createExpense(expenseInfo);
+                expenseInfo = [];
+            }
+        })();
+    }
+
+    addExpenseBtn.addEventListener('click', setExpenseInput);
+})();
 
 function deleteBtn() {
     const deleteBtn = document.createElement('i');
@@ -55,8 +67,9 @@ function createExpense(expenseInfo) {
 }
 
 function displayExpense(tr) {
+    const tableBody = document.querySelector('tbody');
+    const form = document.querySelector('form');
+
     tableBody.appendChild(tr);
     form.reset();
 }
-
-addExpenseBtn.addEventListener('click', getExpenseInfo);
