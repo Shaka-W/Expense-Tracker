@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2719276a9b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1 class="main-title text-center display-4 mt-4 mb-3">Expense Tracker</h1>
+        <h2 class="text-center text-primary mb-3">Add a New Item:</h2>
+    </header>
+    <div class="container">
+        <form>
+            <div class="form-group d-flex">
+              <label for="name-of-expense">Name:</label>
+              <input type="text" class="form-control ml-3" id="name-of-expense">
+            </div>
+            <div class="row">
+                <div class="col d-flex">
+                    <label for="date">Date:</label>
+                  <input type="date" class="form-control  ml-3" id="date">
+                </div>
+                <div class="col d-flex">
+                    <label for="amount">Amount:</label>
+                  <input type="number" class="form-control ml-3" id="amount">
+                </div>
+              </div>
+              <div class="btn-wrapper text-center">
+                <button type="submit" class="btn btn-primary mt-4 p-3" id="btn-add">Add Expense</button>
+              </div>
+          </form>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+             
+            </tbody>
+          </table>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
